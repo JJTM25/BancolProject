@@ -31,16 +31,7 @@ public class SpringBootBackendBancolApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		mongoTemplate.dropCollection("productos").subscribe();
-		
-		Flux.just(new Producto("SAMSUNG 55", "TV","Es un televisor", 123.22),
-				new Producto("Equipo de sonido", "Equipo","es un equipo", 123.22),
-				new Producto("Sanduchera", "x","Es una sanduchera", 123.22),
-				new Producto("Sasdasd", "Tasda","Es uasads", 123.22)				
-				)
-		.flatMap(producto -> dao.save(producto))
-		.subscribe(producto -> Log.info("Insert"+producto.getIdProducto()+"  "+producto.getNombre()))
-		;
+
 		
 	}
 	
