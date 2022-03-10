@@ -1,5 +1,9 @@
 package com.bancol.springboot.app.models.dao;
 
-public interface IProductoDao {
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+
+import com.bancol.springboot.app.models.entity.Producto;
+
+public interface IProductoDao extends ReactiveMongoRepository<Producto, String>{
 
 }
