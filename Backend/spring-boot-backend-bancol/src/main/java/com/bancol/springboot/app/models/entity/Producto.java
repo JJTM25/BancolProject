@@ -3,18 +3,23 @@ package com.bancol.springboot.app.models.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.validation.constraints.NotEmpty;
+
 @Document(collection = "productos")
 public class Producto {
 	
 	@Id
 	private String idProducto;
 	
+	@NotEmpty
 	private String nombre;
 	
+	@NotEmpty
 	private String tipoProduct;		
 	
 	private String descripcion;
 	
+
 	private Double precio;	
 	
 	

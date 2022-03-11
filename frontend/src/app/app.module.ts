@@ -9,10 +9,13 @@ import { ProductosComponent } from './productos/productos.component';
 import { ProductoService } from './productos/producto.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './productos/form.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', redirectTo: '/productos', pathMatch: 'full'},
-  {path: 'productos', component: ProductosComponent}
+  {path: 'productos', component: ProductosComponent},
+  {path: 'productos/form', component: FormComponent}
 
 ];
 
@@ -21,12 +24,14 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProductosComponent
+    ProductosComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ ProductoService],

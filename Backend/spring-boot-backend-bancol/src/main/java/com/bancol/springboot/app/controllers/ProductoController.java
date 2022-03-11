@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.bancol.springboot.app.models.dao.IProductoDao;
 import com.bancol.springboot.app.models.entity.Producto;
 import com.bancol.springboot.app.models.services.ProductoService;
 
+import jakarta.validation.Valid;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -52,7 +54,8 @@ public class ProductoController {
 	}
 	
 	@PostMapping
-	public Mono<ResponseEntity<Producto>> crear(@RequestBody Producto producto){
+	public Mono<ResponseEntity<Producto>> crear(@Valid@RequestBody Producto producto){
+		
 		return service.save(producto).map(p -> ResponseEntity.created(URI.create("/api/productos/".concat(p.getIdProducto())))
 				.contentType(MediaType.APPLICATION_JSON)
 				.body(p));
