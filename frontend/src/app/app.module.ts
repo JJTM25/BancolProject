@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductoService } from './productos/producto.service';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', redirectTo: '/productos', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],

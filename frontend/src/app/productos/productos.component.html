@@ -1,1 +1,25 @@
-<p>productos works!</p>
+<div class="card text-white bg-primary mb-3">
+  <div class="card-header">Productos</div>
+  <div class="card-body">
+    <h5 class="card-title">Lista de Productos</h5>
+
+    <table class="table table-table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Descripción</th>
+          <th>precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of productos">
+          <td>{{p.nombre}}</td>
+          <td>{{p.tipoProduct}}</td>
+          <td>{{p.descripcion}}</td>
+          <td>{{p.precio}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

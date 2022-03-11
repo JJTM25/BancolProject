@@ -1,7 +1,7 @@
 export class Producto {
   id:string;
   nombre:string;
-  tipo:string;
+  tipoProduct:string;
   descripcion:string;
   precio:number;
 }
